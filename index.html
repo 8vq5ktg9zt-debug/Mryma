@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى مريومة 💖</title>
+    <style>
+        body { font-family: 'Cairo', sans-serif; margin: 0; background-color: #fce4ec; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; color: #d81b60; text-align: center; }
+        .heart { position: absolute; color: #ff80ab; font-size: 1.5rem; animation: fall linear infinite; opacity: 0.7; }
+        @keyframes fall { to { transform: translateY(100vh) translateX(20px); } }
+        #message-container { display: none; background: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid #ff80ab; z-index: 10; max-width: 80%; }
+        #password-container { background: white; padding: 30px; border-radius: 20px; z-index: 20; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        input[type="text"] { padding: 12px; border: 2px solid #ff80ab; border-radius: 10px; margin: 10px 0; width: 80%; text-align: center; font-size: 16px; }
+        button { padding: 12px 24px; border: none; border-radius: 10px; background-color: #d81b60; color: white; cursor: pointer; font-weight: bold; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <audio id="loveSong" loop>
+        <source src="IMG_4942" type="audio/mpeg">
+    </audio>
+
+    <div id="password-container">
+        <h2>هدايا العيد محتاجة كلمة سر! 😉</h2>
+        <p>اكتبي التاريخ (يوم/شهر/سنة)</p>
+        <input type="text" id="passwordInput" placeholder="4/6/2025">
+        <br>
+        <button onclick="checkPassword()">افتح الهدية</button>
+    </div>
+
+    <div id="message-container">
+        <h1>إلى مريومة قلبي 💖</h1>
+        <p>
+            بحبك اوي يمريومتي ربنا يخليكي ليا يارب <br>
+            و ميحرمنيش منك أبدا كل سنه و انتي طيبه <br>
+            عيد فطر مبارك عليكي ينن عيوني 💖
+        </p>
+        <p style="font-size: 14px; color: #ff4081;">🎵 الأغنية شغالة دلوقتي..</p>
+    </div>
+
+    <script>
+        // دالة عمل القلوب الطائرة
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 300);
+
+        // دالة التأكد من كلمة السر وتشغيل الأغنية
+        function checkPassword() {
+            const pass = document.getElementById('passwordInput').value;
+            const song = document.getElementById('loveSong');
+            
+            if (pass === '4/6/2025') {
+                document.getElementById('password-container').style.display = 'none';
+                document.getElementById('message-container').style.display = 'block';
+                
+                // محاولة تشغيل الأغنية
+                song.play().catch(function(error) {
+                    console.log("المتصفح منع التشغيل التلقائي، مريومة لازم تلمس الشاشة");
+                });
+            } else {
+                alert('كلمة السر غلط يا قمر، جربي تاني! 🤔');
+            }
+        }
+    </script>
+</body>
+</html>
