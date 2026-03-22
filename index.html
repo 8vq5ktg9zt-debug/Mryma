@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حقك عليا</title>
+    <style>
+        body {
+            /* خلفية متدرجة بألوان هادئة ورومانسية */
+            background: linear-gradient(-45deg, #fdfaf6, #ffe4e1, #e6e6fa);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite; /* تحريك الخلفية */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* لمنع ظهور شريطي التمرير */
+        }
+
+        /* تحريك الخلفية المتدرجة */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85); /* خلفية بيضاء شبه شفافة */
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 1px solid rgba(234, 221, 202, 0.5); /* حافة ناعمة */
+            max-width: 450px;
+            position: relative; /* ضروري لوضع العناصر بالداخل */
+            z-index: 10; /* لجعل الكارد فوق القلوب */
+        }
+
+        h1 {
+            color: #b5838d; /* لون وردي خشبي */
+            font-size: 26px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #6d6875;
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .heart-icon {
+            color: #e5989b;
+            font-size: 40px;
+            display: inline-block;
+            animation: beat 1s infinite alternate; /* تحريك القلب بالنبض */
+        }
+
+        /* تحريك نبض القلب */
+        @keyframes beat {
+            to { transform: scale(1.1); }
+        }
+
+        /* تنسيق القلوب المتحركة في الخلفية */
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* لمنع القلوب من التفاعل مع الماوس */
+            z-index: 1; /* لجعل القلوب تحت الكارد */
+        }
+
+        .heart {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(229, 152, 155, 0.6); /* لون القلوب شفاف قليلاً */
+            animation: animate 25s linear infinite; /* تحريك القلوب */
+            bottom: -150px;
+            border-radius: 50%; /* لجعل القلوب بيضاوية */
+        }
+
+        /* شكل القلب (باستخدام ::before و ::after) */
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: 10px;
+        }
+
+        /* تحريك القلوب */
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* إعدادات عشوائية للقلوب (الحجم، الموضع، المدة) */
+        .heart:nth-child(1){ left: 25%; width: 25px; height: 25px; animation-delay: 0s; }
+        .heart:nth-child(2){ left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .heart:nth-child(3){ left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+        .heart:nth-child(4){ left: 40%; width: 30px; height: 30px; animation-delay: 0s; animation-duration: 18s; }
+        .heart:nth-child(5){ left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+        .heart:nth-child(6){ left: 75%; width: 35px; height: 35px; animation-delay: 3s; }
+        .heart:nth-child(7){ left: 35%; width: 40px; height: 40px; animation-delay: 7s; }
+        .heart:nth-child(8){ left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+        .heart:nth-child(9){ left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
+        .heart:nth-child(10){ left: 85%; width: 40px; height: 40px; animation-delay: 0s; animation-duration: 11s; }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="heart-icon">♥</div>
+        <h1>حقك عليا.. أنا آسف يا نن عيوني</h1>
+        <p>نيابة عن أي حد زعلك.. وأوعدك هخرجك خروجة تحفة تعجبك يا حبيبة قلبي.</p>
+    </div>
+
+    <div class="hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+</body>
+</html>
