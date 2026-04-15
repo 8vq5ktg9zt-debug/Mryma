@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى مريومتي 💗</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #4a4a4a;
+        }
+
+        /* نظام القلوب المتحركة */
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+            animation: move linear infinite;
+            top: -10%;
+            z-index: 0;
+        }
+
+        @keyframes move {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        /* صندوق المحتوى */
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 10;
+            width: 85%;
+            max-width: 400px;
+            border: 2px solid #fff;
+        }
+
+        h1 { color: #d63384; margin-bottom: 20px; }
+        p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px; }
+        
+        .password-section input {
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ff9a9e;
+            text-align: center;
+            outline: none;
+            width: 80%;
+        }
+
+        .btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background-color: #ee5253; }
+
+        #main-content { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="hearts-container"></div>
+
+    <div id="login-screen" class="container">
+        <h1>مستنيكي 💗</h1>
+        <div class="password-section">
+            <input type="password" id="passInput" placeholder="اكتبي الباسورد هنا...">
+            <br>
+            <button class="btn" onclick="checkPass()">دخول</button>
+        </div>
+    </div>
+
+    <div id="main-content" class="container">
+        <h1>إلى مريومتي 💗</h1>
+        <p>
+            مستحيل اخسرك مهما حصل او عشان مين.. <br>
+            انتي كل حاجه ف حياتي يا <b>نن عيوني</b> <br>
+            و ربنا يخليكي ليا يارب و ميحرمنيش منك أبدا 🌹
+        </p>
+        <div style="font-size: 3rem;">💑</div>
+    </div>
+
+    <script>
+        // دالة التأكد من الباسورد
+        function checkPass() {
+            const pass = document.getElementById('passInput').value;
+            // الباسورد المطلوب: نن عيون علي
+            if (pass === "نن عيون علي") {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                alert("الباسورد غلط يا مريومة.. ركزي شوية 💗");
+            }
+        }
+
+        // صناعة القلوب المتحركة
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            heart.style.opacity = Math.random();
+            document.getElementById('hearts-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
